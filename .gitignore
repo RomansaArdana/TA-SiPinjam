@@ -1,0 +1,35 @@
+# ===== SIPINJAM .gitignore =====
+
+# Konfigurasi lokal
+config/database.php
+
+# File sistem
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Dependensi (jika ada)
+/vendor/
+/node_modules/
+
+# File log
+*.log
+
+# File upload user (jika ada)
+/uploads/*
+!/uploads/.gitkeep
+
+# Abaikan konfigurasi agent/AI
+.agents/
+AGENTS.md
+
+# Abaikan semua file .md kecuali README.md utama
+*.md
+!/README.md

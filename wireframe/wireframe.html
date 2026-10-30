@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe SIPINJAM — Sistem Peminjaman Inventaris Lab</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f1117;
+            color: #c9d1d9;
+            min-height: 100vh;
+        }
+        
+        /* ===== HEADER ===== */
+        .page-header {
+            background: linear-gradient(135deg, #1a1b2e 0%, #16213e 100%);
+            border-bottom: 1px solid #30363d;
+            padding: 24px 40px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #58a6ff, #bc8cff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+        }
+        .page-header p {
+            font-size: 14px;
+            color: #8b949e;
+        }
+        
+        /* ===== TAB NAVIGATION ===== */
+        .tab-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 16px 40px;
+            background: #161b22;
+            border-bottom: 1px solid #21262d;
+            justify-content: center;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            background: transparent;
+            color: #8b949e;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tab-btn:hover {
+            background: #21262d;
+            color: #c9d1d9;
+        }
+        .tab-btn.active {
+            background: #21262d;
+            color: #58a6ff;
+            border-color: #30363d;
+        }
+        
+        /* ===== WIREFRAME CONTAINER ===== */
+        .wireframe-container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .wireframe-page {
+            display: none;
+        }
+        .wireframe-page.active {
+            display: block;
+        }
+        .wireframe-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #e6edf3;
+            margin-bottom: 6px;
+        }
+        .wireframe-desc {
+            font-size: 13px;
+            color: #8b949e;
+            margin-bottom: 20px;
+        }
+        
+        /* ===== WIREFRAME BOX (the actual wireframe) ===== */
+        .wf {
+            background: #fafbfc;
+            border: 2px solid #d0d7de;
+            border-radius: 12px;
+            overflow: hidden;
+            color: #1f2328;
+            font-size: 13px;
+        }
+        
+        /* -- Navbar -- */
+        .wf-navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background: #f6f8fa;
+            border-bottom: 2px solid #d0d7de;
+        }
+        .wf-logo {
+            font-weight: 700;
+            font-size: 16px;
+            color: #0969da;
+        }
+        .wf-user {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #656d76;
+        }
+        .wf-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #d0d7de;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: #656d76;
+        }
+        .wf-btn-logout {
+            padding: 4px 10px;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            font-size: 11px;
+            color: #656d76;
+            background: #fff;
+        }
+        
+        /* -- Layout -- */
+        .wf-layout {
+            display: flex;
+            min-height: 500px;
+        }
+        
+        /* -- Sidebar -- */
+        .wf-sidebar {
+            width: 200px;
+            background: #f6f8fa;
+            border-right: 2px solid #d0d7de;
+            padding: 16px 0;
+            flex-shrink: 0;
+        }
+        .wf-menu-item {
+            padding: 10px 20px;
+            font-size: 13px;
+            color: #656d76;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 3px solid transparent;
+        }
+        .wf-menu-item.active {
+            color: #0969da;
+            font-weight: 600;
+            background: #ddf4ff;
+            border-left-color: #0969da;
+        }
+        .wf-menu-icon {
+            width: 16px;
+            text-align: center;
+        }
+        
+        /* -- Content -- */
+        .wf-content {
+            flex: 1;
+            padding: 24px;
+        }
+        .wf-content-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .wf-content-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1f2328;
+        }
+        .wf-datetime {
+            font-size: 11px;
+            color: #656d76;
+            background: #f6f8fa;
+            border: 1px dashed #0969da;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+        .wf-datetime::before {
+            content: "⏰ JS: ";
+            color: #0969da;
+            font-weight: 600;
+        }
+        
+        /* -- Stat Cards -- */
+        .wf-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .wf-stat-card {
+            border: 2px solid #d0d7de;
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+            background: #fff;
+        }
+        .wf-stat-icon {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        .wf-stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1f2328;
+        }
+        .wf-stat-label {
+            font-size: 11px;
+            color: #656d76;
+            margin-top: 2px;
+        }
+        
+        /* -- Table -- */
+        .wf-table-wrapper {
+            border: 2px solid #d0d7de;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .wf-table-title {
+            font-size: 14px;
+            font-weight: 600;
+            padding: 12px 16px;
+            background: #f6f8fa;
+            border-bottom: 1px solid #d0d7de;
+        }
+        .wf-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        .wf-table th {
+            background: #f6f8fa;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #656d76;
+            border-bottom: 2px solid #d0d7de;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .wf-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eaeef2;
+            color: #1f2328;
+        }
+        .wf-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* -- Badges -- */
+        .wf-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .wf-badge.waiting { background: #fff8c5; color: #9a6700; border: 1px solid #d4a72c; }
+        .wf-badge.borrowed { background: #ddf4ff; color: #0969da; border: 1px solid #54aeff; }
+        .wf-badge.returned { background: #dafbe1; color: #1a7f37; border: 1px solid #4ac26b; }
+        .wf-badge.rejected { background: #ffebe9; color: #cf222e; border: 1px solid #ff8182; }
+        
+        /* -- Buttons -- */
+        .wf-btn {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid #d0d7de;
+            background: #fff;
+            color: #1f2328;
+        }
+        .wf-btn.primary {
+            background: #0969da;
+            color: #fff;
+            border-color: #0969da;
+        }
+        .wf-btn.success { background: #1a7f37; color: #fff; border-color: #1a7f37; }
+        .wf-btn.danger { background: #cf222e; color: #fff; border-color: #cf222e; }
+        .wf-btn.small { padding: 3px 8px; font-size: 11px; }
+        
+        /* -- Pagination -- */
+        .wf-pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 14px;
+            border-top: 1px solid #eaeef2;
+            background: #f6f8fa;
+        }
+        .wf-pagination span {
+            padding: 4px 10px;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #656d76;
+            background: #fff;
+        }
+        .wf-pagination span.active {
+            background: #0969da;
+            color: #fff;
+            border-color: #0969da;
+        }
+        .wf-ajax-note {
+            text-align: center;
+            font-size: 10px;
+            color: #0969da;
+            padding: 4px;
+            border-top: 1px dashed #0969da;
+            background: #f0f7ff;
+        }
+        .wf-ajax-note::before {
+            content: "⚡ ";
+        }
+        
+        /* -- Filter Bar -- */
+        .wf-filter-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .wf-input {
+            padding: 7px 12px;
+            border: 2px solid #d0d7de;
+            border-radius: 6px;
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+            background: #fff;
+            color: #1f2328;
+        }
+        .wf-select {
+            padding: 7px 12px;
+            border: 2px solid #d0d7de;
+            border-radius: 6px;
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+            background: #fff;
+            color: #656d76;
+        }
+        
+        /* ===== LOGIN PAGE ===== */
+        .wf-login-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+            background: #f6f8fa;
+        }
+        .wf-login-card {
+            width: 380px;
+            background: #fff;
+            border: 2px solid #d0d7de;
+            border-radius: 14px;
+            padding: 40px 32px;
+            text-align: center;
+        }
+        .wf-login-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0969da;
+            margin-bottom: 4px;
+        }
+        .wf-login-subtitle {
+            font-size: 12px;
+            color: #656d76;
+            margin-bottom: 28px;
+        }
+        .wf-form-group {
+            text-align: left;
+            margin-bottom: 16px;
+        }
+        .wf-form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #1f2328;
+            margin-bottom: 6px;
+        }
+        .wf-form-group input, .wf-form-group select, .wf-form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid #d0d7de;
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            background: #f6f8fa;
+            color: #656d76;
+        }
+        .wf-form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .wf-login-btn {
+            width: 100%;
+            padding: 12px;
+            background: #0969da;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            margin-top: 8px;
+        }
+        
+        /* ===== FORM PAGE ===== */
+        .wf-form-page {
+            max-width: 560px;
+        }
+        .wf-form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .wf-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        /* ===== ANNOTATION ===== */
+        .wf-annotation {
+            background: #fff8c5;
+            border: 1px dashed #d4a72c;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 11px;
+            color: #9a6700;
+            margin-top: 8px;
+        }
+        .wf-annotation strong {
+            color: #7d5400;
+        }
+
+        /* ===== NOTE BOX ===== */
+        .wf-note {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            background: #ddf4ff;
+            border: 1px solid #54aeff;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            color: #0969da;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== PAGE HEADER ===== -->
+    <div class="page-header">
+        <h1>📐 Wireframe — SIPINJAM</h1>
+        <p>Sistem Peminjaman Inventaris Laboratorium Kampus &bull; Milestone 1</p>
+    </div>
+
+    <!-- ===== TAB NAVIGATION ===== -->
+    <div class="tab-nav">
+        <button class="tab-btn active" onclick="showPage('login')">1. Login</button>
+        <button class="tab-btn" onclick="showPage('dash-admin')">2. Dashboard Admin</button>
+        <button class="tab-btn" onclick="showPage('dash-peminjam')">3. Dashboard Peminjam</button>
+        <button class="tab-btn" onclick="showPage('kategori')">4. Kelola Kategori</button>
+        <button class="tab-btn" onclick="showPage('barang')">5. Kelola Barang</button>
+        <button class="tab-btn" onclick="showPage('pengguna')">6. Kelola Pengguna</button>
+        <button class="tab-btn" onclick="showPage('peminjaman')">7. Kelola Peminjaman</button>
+        <button class="tab-btn" onclick="showPage('daftar-barang')">8. Daftar Barang</button>
+        <button class="tab-btn" onclick="showPage('form-pinjam')">9. Form Peminjaman</button>
+        <button class="tab-btn" onclick="showPage('riwayat')">10. Riwayat Peminjaman</button>
+    </div>
+
+    <div class="wireframe-container">
+
+        <!-- ============================== -->
+        <!-- 1. LOGIN                       -->
+        <!-- ============================== -->
+        <div id="page-login" class="wireframe-page active">
+            <div class="wireframe-title">1. Halaman Login</div>
+            <div class="wireframe-desc">Halaman publik untuk autentikasi semua pengguna (Admin & Peminjam)</div>
+            <div class="wf">
+                <div class="wf-login-wrapper">
+                    <div class="wf-login-card">
+                        <div class="wf-login-logo">🔬 SIPINJAM</div>
+                        <div class="wf-login-subtitle">Sistem Peminjaman Inventaris Laboratorium</div>
+                        <div class="wf-form-group">
+                            <label>Username</label>
+                            <input type="text" placeholder="Masukkan username" disabled>
+                        </div>
+                        <div class="wf-form-group">
+                            <label>Password</label>
+                            <input type="password" placeholder="Masukkan password" disabled>
+                        </div>
+                        <button class="wf-login-btn" disabled>Masuk</button>
+                        <div class="wf-annotation" style="margin-top: 16px;">
+                            <strong>PHP:</strong> Validasi login, cek database, buat session<br>
+                            <strong>JS:</strong> Validasi input kosong sebelum submit
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- 2. DASHBOARD ADMIN             -->
+        <!-- ============================== -->
+        <div id="page-dash-admin" class="wireframe-page">
+            <div class="wireframe-title">2. Dashboard Admin</div>
+            <div class="wireframe-desc">Halaman utama admin setelah login — menampilkan ringkasan statistik dan peminjaman terbaru</div>
+            <div class="wf">
+                <div class="wf-navbar">
+                    <div class="wf-logo">🔬 SIPINJAM</div>
+                    <div class="wf-user">
+                        <div class="wf-avatar">A</div>
+                        Admin Lab
+                        <span class="wf-btn-logout">Logout</span>
+                    </div>
+                </div>
+                <div class="wf-layout">
+                    <div class="wf-sidebar">
+                        <div class="wf-menu-item active"><span class="wf-menu-icon">📊</span> Dashboard</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📁</span> Kategori</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📦</span> Barang</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">👥</span> Pengguna</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📋</span> Peminjaman</div>
+                    </div>
+                    <div class="wf-content">
+                        <div class="wf-content-header">
+                            <div class="wf-content-title">Dashboard</div>
+                            <div class="wf-datetime">Kamis, 30 Oktober 2026 — 13:00 WIB</div>
+                        </div>
+                        <div class="wf-stats">
+                            <div class="wf-stat-card">
+                                <div class="wf-stat-icon">📦</div>
+                                <div class="wf-stat-number">48</div>
+                                <div class="wf-stat-label">Total Barang</div>
+                            </div>
+                            <div class="wf-stat-card">
+                                <div class="wf-stat-icon">✅</div>
+                                <div class="wf-stat-number">35</div>
+                                <div class="wf-stat-label">Tersedia</div>
+                            </div>
+                            <div class="wf-stat-card">
+                                <div class="wf-stat-icon">🔄</div>
+                                <div class="wf-stat-number">13</div>
+                                <div class="wf-stat-label">Sedang Dipinjam</div>
+                            </div>
+                            <div class="wf-stat-card">
+                                <div class="wf-stat-icon">📋</div>
+                                <div class="wf-stat-number">127</div>
+                                <div class="wf-stat-label">Total Transaksi</div>
+                            </div>
+                        </div>
+                        <div class="wf-table-wrapper">
+                            <div class="wf-table-title">Peminjaman Terbaru</div>
+                            <table class="wf-table">
+                                <thead>
+                                    <tr><th>No</th><th>Peminjam</th><th>Barang</th><th>Tgl Pinjam</th><th>Status</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Andi Pratama</td><td>Multimeter Digital</td><td>28 Okt 2026</td><td><span class="wf-badge borrowed">Dipinjam</span></td></tr>
+                                    <tr><td>2</td><td>Siti Rahayu</td><td>Osiloskop</td><td>27 Okt 2026</td><td><span class="wf-badge waiting">Menunggu</span></td></tr>
+                                    <tr><td>3</td><td>Budi Santoso</td><td>Mikroskop Binokuler</td><td>25 Okt 2026</td><td><span class="wf-badge returned">Dikembalikan</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="wf-annotation" style="margin-top:12px">
+                            <strong>PHP:</strong> Query COUNT dari tabel barang & peminjaman untuk stat cards<br>
+                            <strong>JS:</strong> Tampilkan tanggal & waktu real-time (update setiap detik)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- 3. DASHBOARD PEMINJAM          -->
+        <!-- ============================== -->
+        <div id="page-dash-peminjam" class="wireframe-page">
+            <div class="wireframe-title">3. Dashboard Peminjam</div>
+            <div class="wireframe-desc">Halaman utama peminjam — ringkasan peminjaman pribadi</div>
+            <div class="wf">
+                <div class="wf-navbar">
+                    <div class="wf-logo">🔬 SIPINJAM</div>
+                    <div class="wf-user">
+                        <div class="wf-avatar">M</div>
+                        Mahasiswa
+                        <span class="wf-btn-logout">Logout</span>
+                    </div>
+                </div>
+                <div class="wf-layout">
+                    <div class="wf-sidebar">
+                        <div class="wf-menu-item active"><span class="wf-menu-icon">📊</span> Dashboard</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📦</span> Daftar Barang</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">➕</span> Ajukan Peminjaman</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📋</span> Riwayat Peminjaman</div>
+                    </div>
+                    <div class="wf-content">
+                        <div class="wf-content-header">
+                            <div class="wf-content-title">Dashboard Peminjam</div>
+                            <div class="wf-datetime">Kamis, 30 Oktober 2026 — 13:00 WIB</div>
+                        </div>
+                        <div class="wf-stats" style="grid-template-columns: repeat(3, 1fr);">
+                            <div class="wf-stat-card">
+                                <div class="wf-stat-icon">🔄</div>
+                                <div class="wf-stat-number">2</div>
+                                <div class="wf-stat-label">Peminjaman Aktif</div>
+                            </div>
+                            <div class="wf-stat-card">
+                                <div class="wf-stat-icon">📋</div>
+                                <div class="wf-stat-number">8</div>
+                                <div class="wf-stat-label">Total Peminjaman</div>
+                            </div>
+                            <div class="wf-stat-card">
+                                <div class="wf-stat-icon">⏳</div>
+                                <div class="wf-stat-number">1</div>
+                                <div class="wf-stat-label">Menunggu Persetujuan</div>
+                            </div>
+                        </div>
+                        <div class="wf-table-wrapper">
+                            <div class="wf-table-title">Peminjaman Terbaru Saya</div>
+                            <table class="wf-table">
+                                <thead>
+                                    <tr><th>No</th><th>Barang</th><th>Tgl Pinjam</th><th>Tgl Kembali</th><th>Status</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Multimeter Digital</td><td>28 Okt 2026</td><td>30 Okt 2026</td><td><span class="wf-badge borrowed">Dipinjam</span></td></tr>
+                                    <tr><td>2</td><td>Solder Station</td><td>29 Okt 2026</td><td>31 Okt 2026</td><td><span class="wf-badge waiting">Menunggu</span></td></tr>
+                                    <tr><td>3</td><td>Osiloskop</td><td>20 Okt 2026</td><td>22 Okt 2026</td><td><span class="wf-badge returned">Dikembalikan</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- 4. KELOLA KATEGORI             -->
+        <!-- ============================== -->
+        <div id="page-kategori" class="wireframe-page">
+            <div class="wireframe-title">4. Kelola Kategori (Admin)</div>
+            <div class="wireframe-desc">CRUD data kategori barang — Elektronik, Optik, Alat Ukur, dll.</div>
+            <div class="wf">
+                <div class="wf-navbar">
+                    <div class="wf-logo">🔬 SIPINJAM</div>
+                    <div class="wf-user">
+                        <div class="wf-avatar">A</div>
+                        Admin Lab
+                        <span class="wf-btn-logout">Logout</span>
+                    </div>
+                </div>
+                <div class="wf-layout">
+                    <div class="wf-sidebar">
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📊</span> Dashboard</div>
+                        <div class="wf-menu-item active"><span class="wf-menu-icon">📁</span> Kategori</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📦</span> Barang</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">👥</span> Pengguna</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📋</span> Peminjaman</div>
+                    </div>
+                    <div class="wf-content">
+                        <div class="wf-content-header">
+                            <div class="wf-content-title">Kelola Kategori</div>
+                            <span class="wf-btn primary">+ Tambah Kategori</span>
+                        </div>
+                        <div class="wf-filter-bar">
+                            <input class="wf-input" placeholder="🔍 Cari kategori..." disabled style="flex:1">
+                        </div>
+                        <div class="wf-table-wrapper">
+                            <table class="wf-table">
+                                <thead>
+                                    <tr><th>No</th><th>Nama Kategori</th><th>Deskripsi</th><th>Jumlah Barang</th><th>Aksi</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Elektronik</td><td>Peralatan elektronik lab</td><td>15</td><td><span class="wf-btn small">Edit</span> <span class="wf-btn small danger">Hapus</span></td></tr>
+                                    <tr><td>2</td><td>Optik</td><td>Peralatan optik dan mikroskop</td><td>8</td><td><span class="wf-btn small">Edit</span> <span class="wf-btn small danger">Hapus</span></td></tr>
+                                    <tr><td>3</td><td>Alat Ukur</td><td>Alat ukur dan instrumen</td><td>12</td><td><span class="wf-btn small">Edit</span> <span class="wf-btn small danger">Hapus</span></td></tr>
+                                    <tr><td>4</td><td>Alat Keselamatan</td><td>APD dan perlengkapan safety</td><td>6</td><td><span class="wf-btn small">Edit</span> <span class="wf-btn small danger">Hapus</span></td></tr>
+                                    <tr><td>5</td><td>Perkakas</td><td>Perkakas tangan dan mesin</td><td>7</td><td><span class="wf-btn small">Edit</span> <span class="wf-btn small danger">Hapus</span></td></tr>
+                                </tbody>
+                            </table>
+                            <div class="wf-pagination">
+                                <span>‹ Prev</span>
+                                <span class="active">1</span>
+                                <span>2</span>
+                                <span>Next ›</span>
+                            </div>
+                            <div class="wf-ajax-note">Pagination menggunakan jQuery AJAX (data dimuat tanpa reload halaman)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- 5. KELOLA BARANG               -->
+        <!-- ============================== -->
+        <div id="page-barang" class="wireframe-page">
+            <div class="wireframe-title">5. Kelola Barang (Admin)</div>
+            <div class="wireframe-desc">CRUD data barang/inventaris lab — dengan filter kategori dan pencarian</div>
+            <div class="wf">
+                <div class="wf-navbar">
+                    <div class="wf-logo">🔬 SIPINJAM</div>
+                    <div class="wf-user">
+                        <div class="wf-avatar">A</div>
+                        Admin Lab
+                        <span class="wf-btn-logout">Logout</span>
+                    </div>
+                </div>
+                <div class="wf-layout">
+                    <div class="wf-sidebar">
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📊</span> Dashboard</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📁</span> Kategori</div>
+                        <div class="wf-menu-item active"><span class="wf-menu-icon">📦</span> Barang</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">👥</span> Pengguna</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📋</span> Peminjaman</div>
+                    </div>
+                    <div class="wf-content">
+                        <div class="wf-content-header">
+                            <div class="wf-content-title">Kelola Barang</div>
+                            <span class="wf-btn primary">+ Tambah Barang</span>
+                        </div>
+                        <div class="wf-filter-bar">
+                            <input class="wf-input" placeholder="🔍 Cari barang..." disabled style="flex:1">
+                            <select class="wf-select" disabled>
+                                <option>Semua Kategori</option>
+                            </select>
+                        </div>
+                        <div class="wf-table-wrapper">
+                            <table class="wf-table">
+                                <thead>
+                                    <tr><th>No</th><th>Kode</th><th>Nama Barang</th><th>Kategori</th><th>Total</th><th>Tersedia</th><th>Kondisi</th><th>Aksi</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>EL-001</td><td>Multimeter Digital</td><td>Elektronik</td><td>5</td><td>3</td><td>Baik</td><td><span class="wf-btn small">Edit</span> <span class="wf-btn small danger">Hapus</span></td></tr>
+                                    <tr><td>2</td><td>EL-002</td><td>Osiloskop</td><td>Elektronik</td><td>3</td><td>1</td><td>Baik</td><td><span class="wf-btn small">Edit</span> <span class="wf-btn small danger">Hapus</span></td></tr>
+                                    <tr><td>3</td><td>OP-001</td><td>Mikroskop Binokuler</td><td>Optik</td><td>4</td><td>4</td><td>Baik</td><td><span class="wf-btn small">Edit</span> <span class="wf-btn small danger">Hapus</span></td></tr>
+                                    <tr><td>4</td><td>UK-001</td><td>Jangka Sorong Digital</td><td>Alat Ukur</td><td>10</td><td>7</td><td>Baik</td><td><span class="wf-btn small">Edit</span> <span class="wf-btn small danger">Hapus</span></td></tr>
+                                    <tr><td>5</td><td>EL-003</td><td>Solder Station</td><td>Elektronik</td><td>6</td><td>4</td><td>Rusak Ringan</td><td><span class="wf-btn small">Edit</span> <span class="wf-btn small danger">Hapus</span></td></tr>
+                                </tbody>
+                            </table>
+                            <div class="wf-pagination">
+                                <span>‹ Prev</span>
+                                <span class="active">1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>Next ›</span>
+                            </div>
+                            <div class="wf-ajax-note">Pagination menggunakan jQuery AJAX (data dimuat tanpa reload halaman)</div>
+                        </div>
+                        <div class="wf-annotation" style="margin-top:12px">
+                            <strong>Klik "Hapus"</strong> → Muncul konfirmasi (JS confirm / modal)<br>
+                            <strong>Klik "+ Tambah Barang"</strong> → Arahkan ke form tambah barang
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- 6. KELOLA PENGGUNA             -->
+        <!-- ============================== -->
+        <div id="page-pengguna" class="wireframe-page">
+            <div class="wireframe-title">6. Kelola Pengguna (Admin)</div>
+            <div class="wireframe-desc">CRUD data pengguna — admin dan peminjam</div>
+            <div class="wf">
+                <div class="wf-navbar">
+                    <div class="wf-logo">🔬 SIPINJAM</div>
+                    <div class="wf-user">
+                        <div class="wf-avatar">A</div>
+                        Admin Lab
+                        <span class="wf-btn-logout">Logout</span>
+                    </div>
+                </div>
+                <div class="wf-layout">
+                    <div class="wf-sidebar">
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📊</span> Dashboard</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📁</span> Kategori</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📦</span> Barang</div>
+                        <div class="wf-menu-item active"><span class="wf-menu-icon">👥</span> Pengguna</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📋</span> Peminjaman</div>
+                    </div>
+                    <div class="wf-content">
+                        <div class="wf-content-header">
+                            <div class="wf-content-title">Kelola Pengguna</div>
+                            <span class="wf-btn primary">+ Tambah Pengguna</span>
+                        </div>
+                        <div class="wf-filter-bar">
+                            <input class="wf-input" placeholder="🔍 Cari pengguna..." disabled style="flex:1">
+                            <select class="wf-select" disabled>
+                                <option>Semua Role</option>
+                            </select>
+                        </div>
+                        <div class="wf-table-wrapper">
+                            <table class="wf-table">
+                                <thead>
+                                    <tr><th>No</th><th>Nama Lengkap</th><th>Username</th><th>Role</th><th>Tgl Dibuat</th><th>Aksi</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Admin Lab Fisika</td><td>admin_fisika</td><td><span class="wf-badge borrowed">Admin</span></td><td>01 Sep 2026</td><td><span class="wf-btn small">Edit</span> <span class="wf-btn small danger">Hapus</span></td></tr>
+                                    <tr><td>2</td><td>Andi Pratama</td><td>andi_p</td><td><span class="wf-badge returned">Peminjam</span></td><td>05 Sep 2026</td><td><span class="wf-btn small">Edit</span> <span class="wf-btn small danger">Hapus</span></td></tr>
+                                    <tr><td>3</td><td>Siti Rahayu</td><td>siti_r</td><td><span class="wf-badge returned">Peminjam</span></td><td>10 Sep 2026</td><td><span class="wf-btn small">Edit</span> <span class="wf-btn small danger">Hapus</span></td></tr>
+                                    <tr><td>4</td><td>Budi Santoso</td><td>budi_s</td><td><span class="wf-badge returned">Peminjam</span></td><td>12 Sep 2026</td><td><span class="wf-btn small">Edit</span> <span class="wf-btn small danger">Hapus</span></td></tr>
+                                </tbody>
+                            </table>
+                            <div class="wf-pagination">
+                                <span>‹ Prev</span>
+                                <span class="active">1</span>
+                                <span>2</span>
+                                <span>Next ›</span>
+                            </div>
+                            <div class="wf-ajax-note">Pagination menggunakan jQuery AJAX</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- 7. KELOLA PEMINJAMAN           -->
+        <!-- ============================== -->
+        <div id="page-peminjaman" class="wireframe-page">
+            <div class="wireframe-title">7. Kelola Peminjaman (Admin)</div>
+            <div class="wireframe-desc">Melihat semua peminjaman, mengubah status (setujui/tolak/kembalikan)</div>
+            <div class="wf">
+                <div class="wf-navbar">
+                    <div class="wf-logo">🔬 SIPINJAM</div>
+                    <div class="wf-user">
+                        <div class="wf-avatar">A</div>
+                        Admin Lab
+                        <span class="wf-btn-logout">Logout</span>
+                    </div>
+                </div>
+                <div class="wf-layout">
+                    <div class="wf-sidebar">
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📊</span> Dashboard</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📁</span> Kategori</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📦</span> Barang</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">👥</span> Pengguna</div>
+                        <div class="wf-menu-item active"><span class="wf-menu-icon">📋</span> Peminjaman</div>
+                    </div>
+                    <div class="wf-content">
+                        <div class="wf-content-header">
+                            <div class="wf-content-title">Kelola Peminjaman</div>
+                        </div>
+                        <div class="wf-filter-bar">
+                            <select class="wf-select" disabled>
+                                <option>Semua Status</option>
+                            </select>
+                            <input class="wf-input" type="text" placeholder="Dari tanggal" disabled style="width:130px">
+                            <input class="wf-input" type="text" placeholder="Sampai tanggal" disabled style="width:130px">
+                            <span class="wf-btn primary">Filter</span>
+                        </div>
+                        <div class="wf-table-wrapper">
+                            <table class="wf-table">
+                                <thead>
+                                    <tr><th>No</th><th>Peminjam</th><th>Barang</th><th>Jml</th><th>Tgl Pinjam</th><th>Tgl Kembali</th><th>Status</th><th>Aksi</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Siti Rahayu</td><td>Osiloskop</td><td>1</td><td>27 Okt</td><td>29 Okt</td><td><span class="wf-badge waiting">Menunggu</span></td><td><span class="wf-btn small success">Setujui</span> <span class="wf-btn small danger">Tolak</span></td></tr>
+                                    <tr><td>2</td><td>Andi Pratama</td><td>Multimeter Digital</td><td>2</td><td>28 Okt</td><td>30 Okt</td><td><span class="wf-badge borrowed">Dipinjam</span></td><td><span class="wf-btn small">Kembalikan</span></td></tr>
+                                    <tr><td>3</td><td>Budi Santoso</td><td>Mikroskop Binokuler</td><td>1</td><td>25 Okt</td><td>27 Okt</td><td><span class="wf-badge returned">Dikembalikan</span></td><td>—</td></tr>
+                                    <tr><td>4</td><td>Rina Wati</td><td>Solder Station</td><td>1</td><td>20 Okt</td><td>22 Okt</td><td><span class="wf-badge rejected">Ditolak</span></td><td>—</td></tr>
+                                    <tr><td>5</td><td>Deni Kurnia</td><td>Jangka Sorong Digital</td><td>3</td><td>29 Okt</td><td>31 Okt</td><td><span class="wf-badge waiting">Menunggu</span></td><td><span class="wf-btn small success">Setujui</span> <span class="wf-btn small danger">Tolak</span></td></tr>
+                                </tbody>
+                            </table>
+                            <div class="wf-pagination">
+                                <span>‹ Prev</span>
+                                <span class="active">1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>Next ›</span>
+                            </div>
+                            <div class="wf-ajax-note">Pagination menggunakan jQuery AJAX</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- 8. DAFTAR BARANG (PEMINJAM)    -->
+        <!-- ============================== -->
+        <div id="page-daftar-barang" class="wireframe-page">
+            <div class="wireframe-title">8. Daftar Barang Tersedia (Peminjam)</div>
+            <div class="wireframe-desc">Peminjam melihat barang yang tersedia untuk dipinjam, dengan pencarian</div>
+            <div class="wf">
+                <div class="wf-navbar">
+                    <div class="wf-logo">🔬 SIPINJAM</div>
+                    <div class="wf-user">
+                        <div class="wf-avatar">M</div>
+                        Mahasiswa
+                        <span class="wf-btn-logout">Logout</span>
+                    </div>
+                </div>
+                <div class="wf-layout">
+                    <div class="wf-sidebar">
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📊</span> Dashboard</div>
+                        <div class="wf-menu-item active"><span class="wf-menu-icon">📦</span> Daftar Barang</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">➕</span> Ajukan Peminjaman</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📋</span> Riwayat Peminjaman</div>
+                    </div>
+                    <div class="wf-content">
+                        <div class="wf-content-header">
+                            <div class="wf-content-title">Daftar Barang Tersedia</div>
+                        </div>
+                        <div class="wf-filter-bar">
+                            <input class="wf-input" placeholder="🔍 Cari nama barang..." disabled style="flex:1">
+                            <select class="wf-select" disabled>
+                                <option>Semua Kategori</option>
+                            </select>
+                        </div>
+                        <div class="wf-table-wrapper">
+                            <table class="wf-table">
+                                <thead>
+                                    <tr><th>No</th><th>Kode</th><th>Nama Barang</th><th>Kategori</th><th>Tersedia</th><th>Kondisi</th><th>Aksi</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>EL-001</td><td>Multimeter Digital</td><td>Elektronik</td><td>3</td><td>Baik</td><td><span class="wf-btn small primary">Pinjam</span></td></tr>
+                                    <tr><td>2</td><td>EL-002</td><td>Osiloskop</td><td>Elektronik</td><td>1</td><td>Baik</td><td><span class="wf-btn small primary">Pinjam</span></td></tr>
+                                    <tr><td>3</td><td>OP-001</td><td>Mikroskop Binokuler</td><td>Optik</td><td>4</td><td>Baik</td><td><span class="wf-btn small primary">Pinjam</span></td></tr>
+                                    <tr><td>4</td><td>UK-001</td><td>Jangka Sorong Digital</td><td>Alat Ukur</td><td>7</td><td>Baik</td><td><span class="wf-btn small primary">Pinjam</span></td></tr>
+                                    <tr><td>5</td><td>EL-003</td><td>Solder Station</td><td>Elektronik</td><td>4</td><td>Baik</td><td><span class="wf-btn small primary">Pinjam</span></td></tr>
+                                </tbody>
+                            </table>
+                            <div class="wf-pagination">
+                                <span>‹ Prev</span>
+                                <span class="active">1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>Next ›</span>
+                            </div>
+                            <div class="wf-ajax-note">Pagination menggunakan jQuery AJAX</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- 9. FORM AJUKAN PEMINJAMAN      -->
+        <!-- ============================== -->
+        <div id="page-form-pinjam" class="wireframe-page">
+            <div class="wireframe-title">9. Form Ajukan Peminjaman (Peminjam)</div>
+            <div class="wireframe-desc">Form untuk peminjam mengajukan peminjaman barang</div>
+            <div class="wf">
+                <div class="wf-navbar">
+                    <div class="wf-logo">🔬 SIPINJAM</div>
+                    <div class="wf-user">
+                        <div class="wf-avatar">M</div>
+                        Mahasiswa
+                        <span class="wf-btn-logout">Logout</span>
+                    </div>
+                </div>
+                <div class="wf-layout">
+                    <div class="wf-sidebar">
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📊</span> Dashboard</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📦</span> Daftar Barang</div>
+                        <div class="wf-menu-item active"><span class="wf-menu-icon">➕</span> Ajukan Peminjaman</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📋</span> Riwayat Peminjaman</div>
+                    </div>
+                    <div class="wf-content">
+                        <div class="wf-content-header">
+                            <div class="wf-content-title">Ajukan Peminjaman</div>
+                        </div>
+                        <div class="wf-note">
+                            ℹ️ Isi form berikut untuk mengajukan peminjaman. Admin akan memproses pengajuan Anda.
+                        </div>
+                        <div class="wf-form-page">
+                            <div class="wf-form-group">
+                                <label>Pilih Barang</label>
+                                <select disabled>
+                                    <option>— Pilih barang —</option>
+                                    <option>Multimeter Digital (3 tersedia)</option>
+                                    <option>Osiloskop (1 tersedia)</option>
+                                </select>
+                            </div>
+                            <div class="wf-form-row">
+                                <div class="wf-form-group">
+                                    <label>Jumlah</label>
+                                    <input type="number" placeholder="1" disabled>
+                                </div>
+                                <div class="wf-form-group">
+                                    <label>Keperluan</label>
+                                    <input type="text" placeholder="Praktikum Elektronika" disabled>
+                                </div>
+                            </div>
+                            <div class="wf-form-row">
+                                <div class="wf-form-group">
+                                    <label>Tanggal Pinjam</label>
+                                    <input type="date" disabled>
+                                </div>
+                                <div class="wf-form-group">
+                                    <label>Tanggal Kembali</label>
+                                    <input type="date" disabled>
+                                </div>
+                            </div>
+                            <div class="wf-form-group">
+                                <label>Keterangan (Opsional)</label>
+                                <textarea placeholder="Catatan tambahan..." disabled></textarea>
+                            </div>
+                            <div class="wf-form-actions">
+                                <span class="wf-btn primary" style="padding: 10px 28px;">Ajukan Peminjaman</span>
+                                <span class="wf-btn" style="padding: 10px 28px;">Batal</span>
+                            </div>
+                        </div>
+                        <div class="wf-annotation" style="margin-top:16px">
+                            <strong>JS:</strong> Validasi field wajib, validasi tanggal kembali &gt; tanggal pinjam<br>
+                            <strong>PHP:</strong> Insert ke tabel peminjaman dengan status "Menunggu"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- 10. RIWAYAT PEMINJAMAN         -->
+        <!-- ============================== -->
+        <div id="page-riwayat" class="wireframe-page">
+            <div class="wireframe-title">10. Riwayat Peminjaman (Peminjam)</div>
+            <div class="wireframe-desc">Peminjam melihat seluruh riwayat peminjaman pribadi</div>
+            <div class="wf">
+                <div class="wf-navbar">
+                    <div class="wf-logo">🔬 SIPINJAM</div>
+                    <div class="wf-user">
+                        <div class="wf-avatar">M</div>
+                        Mahasiswa
+                        <span class="wf-btn-logout">Logout</span>
+                    </div>
+                </div>
+                <div class="wf-layout">
+                    <div class="wf-sidebar">
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📊</span> Dashboard</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">📦</span> Daftar Barang</div>
+                        <div class="wf-menu-item"><span class="wf-menu-icon">➕</span> Ajukan Peminjaman</div>
+                        <div class="wf-menu-item active"><span class="wf-menu-icon">📋</span> Riwayat Peminjaman</div>
+                    </div>
+                    <div class="wf-content">
+                        <div class="wf-content-header">
+                            <div class="wf-content-title">Riwayat Peminjaman Saya</div>
+                        </div>
+                        <div class="wf-filter-bar">
+                            <select class="wf-select" disabled>
+                                <option>Semua Status</option>
+                            </select>
+                            <input class="wf-input" placeholder="🔍 Cari barang..." disabled style="flex:1">
+                        </div>
+                        <div class="wf-table-wrapper">
+                            <table class="wf-table">
+                                <thead>
+                                    <tr><th>No</th><th>Barang</th><th>Jml</th><th>Tgl Pinjam</th><th>Tgl Kembali</th><th>Dikembalikan</th><th>Status</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Multimeter Digital</td><td>2</td><td>28 Okt 2026</td><td>30 Okt 2026</td><td>—</td><td><span class="wf-badge borrowed">Dipinjam</span></td></tr>
+                                    <tr><td>2</td><td>Solder Station</td><td>1</td><td>29 Okt 2026</td><td>31 Okt 2026</td><td>—</td><td><span class="wf-badge waiting">Menunggu</span></td></tr>
+                                    <tr><td>3</td><td>Osiloskop</td><td>1</td><td>20 Okt 2026</td><td>22 Okt 2026</td><td>22 Okt 2026</td><td><span class="wf-badge returned">Dikembalikan</span></td></tr>
+                                    <tr><td>4</td><td>Mikroskop Binokuler</td><td>1</td><td>15 Okt 2026</td><td>17 Okt 2026</td><td>17 Okt 2026</td><td><span class="wf-badge returned">Dikembalikan</span></td></tr>
+                                    <tr><td>5</td><td>Power Supply</td><td>1</td><td>10 Okt 2026</td><td>12 Okt 2026</td><td>—</td><td><span class="wf-badge rejected">Ditolak</span></td></tr>
+                                </tbody>
+                            </table>
+                            <div class="wf-pagination">
+                                <span>‹ Prev</span>
+                                <span class="active">1</span>
+                                <span>2</span>
+                                <span>Next ›</span>
+                            </div>
+                            <div class="wf-ajax-note">Pagination menggunakan jQuery AJAX</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showPage(id) {
+            // Hide all pages
+            document.querySelectorAll('.wireframe-page').forEach(p => p.classList.remove('active'));
+            // Show target
+            document.getElementById('page-' + id).classList.add('active');
+            // Update tabs
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
