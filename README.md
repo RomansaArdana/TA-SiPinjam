@@ -55,9 +55,9 @@ Oleh karena itu, direncanakan sebuah sistem peminjaman inventaris berbasis web y
 
 Target penggunaan SIPINJAM adalah **organisasi, instansi, dan perusahaan** yang membutuhkan sistem untuk membantu mengelola barang inventaris dan peminjamannya.
 
-- **Organisasi** — Mengelola peminjaman peralatan organisasi seperti kamera, proyektor, laptop, dan perlengkapan kegiatan.
-- **Instansi** — Mengelola inventaris dan peminjaman fasilitas yang digunakan oleh pegawai atau anggota.
-- **Perusahaan** — Mengelola peminjaman barang kerja seperti laptop, kamera, proyektor, dan perangkat pendukung.
+- **Organisasi** - Mengelola peminjaman peralatan organisasi seperti kamera, proyektor, laptop, dan perlengkapan kegiatan.
+- **Instansi** - Mengelola inventaris dan peminjaman fasilitas yang digunakan oleh pegawai atau anggota.
+- **Perusahaan** - Mengelola peminjaman barang kerja seperti laptop, kamera, proyektor, dan perangkat pendukung.
 
 ---
 
@@ -201,10 +201,10 @@ Berikut adalah daftar halaman yang direncanakan untuk SIPINJAM:
 
 Pada tahap Milestone 1, wireframe yang dibuat meliputi:
 
-1. **Login** — Tampilan halaman login admin.
-2. **Dashboard** — Tampilan ringkasan informasi inventaris dan peminjaman.
-3. **Daftar Barang** — Tampilan daftar barang dengan pencarian dan pagination.
-4. **Form Peminjaman** — Tampilan form untuk mencatat transaksi peminjaman baru.
+1. **Login** - Tampilan halaman login admin.
+2. **Dashboard** - Tampilan ringkasan informasi inventaris dan peminjaman.
+3. **Daftar Barang** - Tampilan daftar barang dengan pencarian dan pagination.
+4. **Form Peminjaman** - Tampilan form untuk mencatat transaksi peminjaman baru.
 
 Wireframe disimpan di dalam folder `wireframe/` dan digunakan sebagai acuan pengembangan antarmuka pada tahap berikutnya.
 
