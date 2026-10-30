@@ -63,7 +63,6 @@ SIPINJAM/
 │   ├── admin/         # Halaman khusus admin
 │   └── peminjam/      # Halaman khusus peminjam
 ├── ajax/              # Endpoint AJAX untuk pagination
-├── wireframe/         # Wireframe halaman (dokumentasi)
 ├── index.php          # Entry point (redirect ke login)
 ├── login.php          # Halaman login
 ├── logout.php         # Proses logout

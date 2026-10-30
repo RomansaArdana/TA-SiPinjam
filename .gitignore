@@ -33,3 +33,6 @@ AGENTS.md
 # Abaikan semua file .md kecuali README.md utama
 *.md
 !/README.md
+
+# Wireframe (dokumentasi lokal)
+wireframe/
