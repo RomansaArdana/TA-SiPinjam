@@ -1,3 +1,3 @@
 <?php
-// Halaman peminjam — Dashboard
+// Halaman login
 // (akan diimplementasi pada milestone selanjutnya)

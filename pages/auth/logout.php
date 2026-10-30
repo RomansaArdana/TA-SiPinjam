@@ -1,3 +1,3 @@
 <?php
-// Halaman admin — Dashboard
+// Proses logout
 // (akan diimplementasi pada milestone selanjutnya)

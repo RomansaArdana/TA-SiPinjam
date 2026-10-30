@@ -1,3 +1,3 @@
 <?php
-// Halaman peminjam — Riwayat Peminjaman
+// Halaman daftar peminjaman
 // (akan diimplementasi pada milestone selanjutnya)

@@ -1,3 +1,3 @@
 <?php
-// Halaman peminjam — Form Ajukan Peminjaman
+// Halaman dashboard admin
 // (akan diimplementasi pada milestone selanjutnya)

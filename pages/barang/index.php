@@ -1,3 +1,3 @@
 <?php
-// Halaman peminjam — Daftar Barang Tersedia
+// Halaman daftar barang
 // (akan diimplementasi pada milestone selanjutnya)
