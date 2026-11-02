@@ -30,9 +30,10 @@ desktop.ini
 .agents/
 AGENTS.md
 
-# Abaikan semua file .md kecuali README.md utama
+# Abaikan semua file .md kecuali README.md utama dan AI_USAGE_LOG.md
 *.md
 !/README.md
+!/AI_USAGE_LOG.md
 
 # Wireframe (dokumentasi lokal)
 wireframe/
