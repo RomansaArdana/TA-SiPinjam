@@ -1,22 +1,21 @@
 <?php
-$pageTitle = 'Kategori Barang';
+$pageTitle  = 'Kategori Barang';
 $activeMenu = 'kategori';
 
 include __DIR__ . '/../../includes/header.php';
 include __DIR__ . '/../../includes/sidebar.php';
-
 ?>
 
 <div class="page-header">
     <div>
-        <h1 class="page-title">Kategori Barang </h1>
-        <p class="text-muted">Kategori daftar barang inventaris </p>
+        <h1 class="page-title">Kategori Barang</h1>
+        <p class="text-muted">Kategori daftar barang inventaris.</p>
     </div>
 </div>
 
 <div class="d-flex justify-between align-center mb-3">
     <a href="/TA-SiPinjam/pages/peminjaman/index.php" class="btn btn-sm btn-primary">
-            Tambah Kategori &rarr;
+        Tambah Kategori
     </a>
 </div>
 
@@ -60,3 +59,7 @@ include __DIR__ . '/../../includes/sidebar.php';
         </table>
     </div>
 </div>
+
+<?php
+include __DIR__ . '/../../includes/footer.php';
+?>

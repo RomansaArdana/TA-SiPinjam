@@ -14,7 +14,7 @@ include __DIR__ . '/../../includes/sidebar.php';
 </div>
 
 <div class="d-flex justify-between align-center mb-3">
-    <a href="" class="btn btn-sm btn-primary">
+    <a href="tambah.php" class="btn btn-sm btn-primary">
         + Tambah Barang
     </a>
 
