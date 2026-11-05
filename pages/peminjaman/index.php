@@ -17,11 +17,6 @@ include __DIR__ . '/../../includes/sidebar.php';
     <a class="btn btn-primary" href="tambah.php">Catat peminjaman</a>
 </div>
 
-<p class="note">
-    Semua baris di tabel ini adalah data contoh, bukan data asli.
-    Tombol Edit membuka form edit statis, sedangkan Detail dan Hapus dikerjakan di Milestone 5 dan 6.
-</p>
-
 <div class="toolbar">
     <div class="field">
         <label for="filter-status">Filter status</label>

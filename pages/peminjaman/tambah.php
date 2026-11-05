@@ -69,11 +69,6 @@ include __DIR__ . '/../../includes/sidebar.php';
     </div>
 </div>
 
-<p class="note">
-    Tombol Simpan belum menyimpan ke database, itu dikerjakan di Milestone 5.
-    Pilihan barang di bawah masih contoh.
-</p>
-
 <!-- TODO Milestone 5: arahkan action ke file proses simpan/update peminjaman. -->
 <form class="form" action="index.php" method="post" novalidate data-validate>
     <p class="form-summary" id="form-summary" role="alert" hidden></p>
