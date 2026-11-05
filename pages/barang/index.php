@@ -73,11 +73,6 @@ include __DIR__ . '/../../includes/sidebar.php';
     </div>
 </div>
 
-<p class="note">
-    Baris di bawah adalah data contoh untuk tampilan Milestone 2.
-    Tombol Edit, Hapus, dan perpindahan halaman AJAX dikerjakan di Milestone 5 dan 6.
-</p>
-
 <div class="toolbar">
     <form method="get" action="index.php" class="search-form">
         <label for="cari-barang" class="field-label">Cari barang</label>
@@ -156,7 +151,7 @@ include __DIR__ . '/../../includes/sidebar.php';
 
 <!-- TODO Milestone 6: aktifkan pagination dengan jQuery AJAX. -->
 <nav class="pagination-bar" aria-label="Navigasi halaman tabel barang">
-    <span class="result-count">Halaman 1 dari 1 (pagination AJAX aktif di Milestone 6)</span>
+    <span class="result-count">Halaman 1 dari 1</span>
     <div class="pagination-controls">
         <button type="button" class="btn btn-small btn-secondary" disabled>Sebelumnya</button>
         <button type="button" class="btn btn-small btn-primary" aria-current="page">1</button>

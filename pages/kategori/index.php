@@ -63,11 +63,6 @@ include __DIR__ . '/../../includes/sidebar.php';
     <button type="button" class="btn btn-secondary" disabled>+ Tambah Kategori (Milestone 5)</button>
 </div>
 
-<p class="note">
-    Data kategori dan ringkasan di bawah masih berupa contoh statis untuk Milestone 2.
-    Fitur tambah, edit, dan hapus kategori dengan database dikerjakan di Milestone 5 dan 6.
-</p>
-
 <div class="summary-row">
     <div class="summary-box">
         <p>Total Kategori (Contoh)</p>
