@@ -29,7 +29,13 @@ Dokumentasi ini mencatat penggunaan AI sebagai asisten belajar (copilot) dalam p
 ---
 
 ## MILESTONE 2 — Front-end dan Interaksi Dasar (Upcoming)
-*(Akan dicatat saat pembuatan halaman HTML/CSS statis, navigasi antarmuka, dan tampilan tanggal/waktu JavaScript)*
+- **Tanggal** : 32 Oktober 2026
+- **Tujuan** : Cara membuat Jam pada.
+- **Prompt** : *"Tolong periksa proyek SiPinjam saya ini, sekarang posisinya di Milestone 1. Apakah dokumen dan rencananya sudah sesuai dengan rubrik penilaian di panduan PjBL PBW?"*
+- **Bagian yang dibantu** : Pengecekan poin-poin rubrik Milestone 1 (identifikasi masalah, target pengguna, fitur, wireframe, dan jumlah commit Git).
+- **Penjelasan mahasiswa** : Penilaian Milestone 1 fokus pada pemahaman masalah dan rencana antarmuka, bukan pada database atau kodingan rumit. Rubrik mengharuskan ada latar belakang masalah, target pengguna, daftar fitur, wireframe 4 halaman inti (login, dashboard, data, form), dan minimal 3 commit bermakna di Git.
+- **Penyesuaian mahasiswa** : Saya mengecek kembali isi `README.md` untuk memastikan penjelasannya sudah lengkap, memastikan riwayat commit sudah lebih dari 3 kali, mencatat log AI ini, serta memastikan berkas wireframe siap ditunjukkan ke dosen penguji.
+- **Hasil pengujian** : `git log` menunjukkan sudah ada 4 commit bertahap, dokumen perencanaan lengkap, dan proyek siap dilanjutkan ke tahap pembuatan tampilan statis di Milestone 2.
 
 ---
 

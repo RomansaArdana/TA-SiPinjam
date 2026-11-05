@@ -1,10 +1,8 @@
-<?php
+﻿<?php
 /**
  * SIPINJAM — Sistem Peminjaman Inventaris Laboratorium
- * Entry Point
- * (akan diimplementasi pada milestone selanjutnya)
+ * Entry Point — Redirect ke halaman login
  */
 
-// Redirect ke halaman login
-// header('Location: login.php');
-// exit;
+header('Location: pages/auth/login.php');
+exit;
