@@ -1,0 +1,273 @@
+/* Gaya khusus form tambah barang dan form peminjaman (Orang 3).
+   Diselaraskan dengan palet --navy pada style.css milik Orang 1. */
+
+:root {
+    --teks: #1E293B;
+    --teks-redup: #475569;
+    --latar: #FFFFFF;
+    --latar-halaman: #F1F5F9;
+    --garis-input: #64748B;
+    --aksen: #1E3A5F;
+    --aksen-hover: #2A4F7C;
+    --aksen-aktif: #132740;
+    --galat: #B42318;
+    --galat-latar: #FEF2F2;
+    --radius: 6px;
+    --jarak: 1rem;
+}
+
+a[href],
+button,
+select,
+label[for],
+input[type="radio"],
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+button:disabled,
+input:disabled,
+select:disabled {
+    cursor: not-allowed;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-bottom: 0.5rem;
+    color: var(--aksen);
+    font-weight: 600;
+}
+
+.page-intro {
+    margin: 0.25rem 0 0;
+    color: var(--teks-redup);
+    font-size: 0.9375rem;
+}
+
+.note {
+    margin: 0 0 1.25rem;
+    padding: 0.75rem 1rem;
+    background: #FFF8E1;
+    color: var(--teks);
+    border: 1px solid #8A6D00;
+    border-radius: var(--radius);
+    font-size: 0.9375rem;
+}
+
+.form {
+    padding: 1.25rem;
+    background: var(--latar);
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+.field-full {
+    grid-column: 1 / -1;
+}
+
+.field label,
+.field legend {
+    display: block;
+    margin-bottom: 0.375rem;
+    padding: 0;
+    color: var(--teks);
+    font-weight: 600;
+    font-size: 0.9375rem;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+}
+
+.form input[type="text"],
+.form input[type="date"],
+.form select,
+.form textarea,
+.toolbar select {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.5rem 0.75rem;
+    background: var(--latar);
+    color: var(--teks);
+    border: 1px solid var(--garis-input);
+    border-radius: var(--radius);
+    font: inherit;
+}
+
+.form textarea {
+    min-height: 6rem;
+    resize: vertical;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+    color: var(--teks-redup);
+}
+
+:focus-visible {
+    outline: 3px solid var(--aksen);
+    outline-offset: 2px;
+}
+
+.form input:hover,
+.form select:hover,
+.form textarea:hover,
+.toolbar select:hover {
+    border-color: var(--teks);
+}
+
+.choice-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.choice {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    margin: 0;
+    padding: 0 1rem 0 0.75rem;
+    border: 1px solid var(--garis-input);
+    border-radius: var(--radius);
+    font-weight: 400;
+}
+
+.choice input {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 0;
+}
+
+.field.has-error input,
+.field.has-error select,
+.field.has-error textarea,
+.field.has-error .choice {
+    border-color: var(--galat);
+    border-width: 2px;
+}
+
+.field-error {
+    margin: 0.375rem 0 0;
+    color: var(--galat);
+    font-size: 0.875rem;
+}
+
+.field-error:empty {
+    display: none;
+}
+
+.form-summary {
+    margin: 0 0 1.25rem;
+    padding: 0.75rem 1rem;
+    background: var(--galat-latar);
+    color: var(--galat);
+    border: 1px solid var(--galat);
+    border-radius: var(--radius);
+    font-weight: 600;
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--aksen);
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--aksen);
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background: var(--aksen-hover);
+    text-decoration: none;
+}
+
+.btn-primary:active {
+    background: var(--aksen-aktif);
+}
+
+.btn-secondary {
+    background: var(--latar);
+    color: var(--aksen);
+}
+
+.btn-secondary:hover {
+    background: var(--latar-halaman);
+    text-decoration: none;
+}
+
+.btn-secondary:active {
+    background: #E2E8F0;
+}
+
+@media (max-width: 48rem) {
+    .layout-main {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: 0;
+        border-bottom: 1px solid #D1D5DB;
+        padding: 0.5rem 0;
+    }
+
+    .sidebar-menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        padding: 0 0.75rem;
+    }
+
+    .sidebar-menu a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 0.875rem;
+    }
+
+    .content {
+        padding: 1.25rem 1rem;
+    }
+}
+
+@media (min-width: 40rem) {
+    .form {
+        padding: 1.5rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1.5rem;
+    }
+
+    .form-actions {
+        flex-direction: row;
+    }
+}
