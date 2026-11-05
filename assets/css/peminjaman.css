@@ -1,0 +1,152 @@
+/* Gaya khusus halaman daftar peminjaman. Dasar (warna, tombol, field) ada di form.css. */
+
+.page-wide {
+    max-width: 64rem;
+}
+
+.page-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.toolbar select {
+    width: 100%;
+}
+
+.result-count {
+    margin: 0;
+    color: var(--teks-redup);
+}
+
+/* Tabel lebih lebar dari layar HP, jadi digeser di dalam wadah ini dan halaman tidak ikut melebar */
+.table-wrap {
+    overflow-x: auto;
+    background: var(--latar);
+    border: 1px solid #D1D5DB;
+    border-radius: var(--radius);
+}
+
+.data-table {
+    width: 100%;
+    min-width: 46rem;
+    border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.data-table th {
+    background: #2B333E;
+    color: #FFFFFF;
+    border-bottom: 2px solid #1E2530;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.data-table tbody tr:hover {
+    background: #F9FAFB;
+}
+
+.data-table time {
+    white-space: nowrap;
+}
+
+.aksi {
+    white-space: nowrap;
+}
+
+.aksi .btn + .btn {
+    margin-left: 0.5rem;
+}
+
+.btn-small {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.9375rem;
+}
+
+.btn:disabled {
+    color: #4B5563;
+    background: var(--latar-halaman);
+    border-color: var(--garis-input);
+}
+
+/* Status selalu ditulis sebagai teks, warna hanya pembeda tambahan */
+.badge {
+    display: inline-block;
+    padding: 0.125rem 0.625rem;
+    border: 1px solid;
+    border-radius: var(--radius);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.badge-menunggu {
+    background: #FFF8E1;
+    color: #1F2933;
+    border-color: #8A6D00;
+}
+
+.badge-dipinjam {
+    background: #E8F0F6;
+    color: #174A6C;
+    border-color: #1F5F8B;
+}
+
+.badge-dikembalikan {
+    background: #F3F4F6;
+    color: #1F2933;
+    border-color: #6B7280;
+}
+
+.badge-dibatalkan {
+    background: var(--galat-latar);
+    color: var(--galat);
+    border-color: var(--galat);
+}
+
+.empty-state {
+    margin: 1rem 0 0;
+    padding: 1rem;
+    background: var(--latar);
+    border: 1px dashed var(--garis-input);
+    border-radius: var(--radius);
+}
+
+@media (min-width: 40rem) {
+    .page-head {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .toolbar {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .toolbar select {
+        width: 16rem;
+    }
+}
+
