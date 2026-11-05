@@ -17,6 +17,11 @@ include __DIR__ . '/../../includes/sidebar.php';
     <a class="btn btn-primary" href="tambah.php">Catat peminjaman</a>
 </div>
 
+<p class="note">
+    Semua baris di tabel ini adalah data contoh, bukan data asli.
+    Tombol Edit membuka form edit statis, sedangkan Detail dan Hapus dikerjakan di Milestone 5 dan 6.
+</p>
+
 <div class="toolbar">
     <div class="field">
         <label for="filter-status">Filter status</label>
@@ -48,65 +53,65 @@ include __DIR__ . '/../../includes/sidebar.php';
             <tr data-status="menunggu">
                 <td>1</td>
                 <td>Peminjam Contoh 1</td>
-                <td>Proyektor</td>
+                <td>Proyektor Epson</td>
                 <td><span class="badge badge-menunggu">Menunggu</span></td>
                 <td><time datetime="2026-11-09">9 Nov 2026</time></td>
                 <td><time datetime="2026-11-10">10 Nov 2026</time></td>
                 <td class="aksi">
                     <button type="button" class="btn btn-small btn-secondary" disabled>Detail</button>
-                    <button type="button" class="btn btn-small btn-secondary" disabled>Edit</button>
+                    <a href="tambah.php?edit=1" class="btn btn-small btn-secondary">Edit</a>
                     <button type="button" class="btn btn-small btn-secondary" disabled>Hapus</button>
                 </td>
             </tr>
             <tr data-status="dipinjam">
                 <td>2</td>
                 <td>Peminjam Contoh 2</td>
-                <td>Laptop</td>
+                <td>Laptop ASUS</td>
                 <td><span class="badge badge-dipinjam">Dipinjam</span></td>
                 <td><time datetime="2026-11-03">3 Nov 2026</time></td>
                 <td><time datetime="2026-11-07">7 Nov 2026</time></td>
                 <td class="aksi">
                     <button type="button" class="btn btn-small btn-secondary" disabled>Detail</button>
-                    <button type="button" class="btn btn-small btn-secondary" disabled>Edit</button>
+                    <a href="tambah.php?edit=2" class="btn btn-small btn-secondary">Edit</a>
                     <button type="button" class="btn btn-small btn-secondary" disabled>Hapus</button>
                 </td>
             </tr>
             <tr data-status="dipinjam">
                 <td>3</td>
                 <td>Peminjam Contoh 3</td>
-                <td>Kamera</td>
+                <td>Kabel HDMI</td>
                 <td><span class="badge badge-dipinjam">Dipinjam</span></td>
                 <td><time datetime="2026-11-04">4 Nov 2026</time></td>
                 <td><time datetime="2026-11-06">6 Nov 2026</time></td>
                 <td class="aksi">
                     <button type="button" class="btn btn-small btn-secondary" disabled>Detail</button>
-                    <button type="button" class="btn btn-small btn-secondary" disabled>Edit</button>
+                    <a href="tambah.php?edit=3" class="btn btn-small btn-secondary">Edit</a>
                     <button type="button" class="btn btn-small btn-secondary" disabled>Hapus</button>
                 </td>
             </tr>
             <tr data-status="dikembalikan">
                 <td>4</td>
                 <td>Peminjam Contoh 4</td>
-                <td>Proyektor</td>
+                <td>Proyektor Epson</td>
                 <td><span class="badge badge-dikembalikan">Dikembalikan</span></td>
                 <td><time datetime="2026-10-27">27 Okt 2026</time></td>
                 <td><time datetime="2026-10-29">29 Okt 2026</time></td>
                 <td class="aksi">
                     <button type="button" class="btn btn-small btn-secondary" disabled>Detail</button>
-                    <button type="button" class="btn btn-small btn-secondary" disabled>Edit</button>
+                    <a href="tambah.php?edit=4" class="btn btn-small btn-secondary">Edit</a>
                     <button type="button" class="btn btn-small btn-secondary" disabled>Hapus</button>
                 </td>
             </tr>
             <tr data-status="dikembalikan">
                 <td>5</td>
                 <td>Peminjam Contoh 5</td>
-                <td>Laptop</td>
+                <td>Laptop ASUS</td>
                 <td><span class="badge badge-dikembalikan">Dikembalikan</span></td>
                 <td><time datetime="2026-10-20">20 Okt 2026</time></td>
                 <td><time datetime="2026-10-22">22 Okt 2026</time></td>
                 <td class="aksi">
                     <button type="button" class="btn btn-small btn-secondary" disabled>Detail</button>
-                    <button type="button" class="btn btn-small btn-secondary" disabled>Edit</button>
+                    <a href="tambah.php?edit=5" class="btn btn-small btn-secondary">Edit</a>
                     <button type="button" class="btn btn-small btn-secondary" disabled>Hapus</button>
                 </td>
             </tr>

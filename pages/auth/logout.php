@@ -1,3 +1,4 @@
 <?php
-// Proses logout
-// (akan diimplementasi pada milestone selanjutnya)
+// Proses logout statis (Milestone 2). Penghapusan session akan diimplementasikan di Milestone 3.
+header('Location: login.php');
+exit;

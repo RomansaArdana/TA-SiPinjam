@@ -132,7 +132,7 @@ include __DIR__ . '/../../includes/sidebar.php';
                             </span>
                         </td>
                         <td class="aksi">
-                            <button type="button" class="btn btn-small btn-secondary" disabled>Edit</button>
+                            <a href="tambah.php?edit=<?= urlencode($item['kode']) ?>" class="btn btn-small btn-secondary">Edit</a>
                             <button type="button" class="btn btn-small btn-secondary" disabled>Hapus</button>
                         </td>
                     </tr>

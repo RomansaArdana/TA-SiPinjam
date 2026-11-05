@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * SIPINJAM - Halaman Login
  */
@@ -38,7 +38,7 @@
             <?php endif; ?>
 
             <!-- Form Login -->
-            <form id="loginForm" method="POST" action="">
+            <form id="loginForm" method="POST" action="../dashboard/index.php" novalidate>
 
                 <div class="form-group">
                     <label class="form-label" for="username">Username</label>

@@ -690,8 +690,51 @@ a:hover {
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 16px;
+    }
 
+    .layout-main {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+        padding: 8px 0;
+    }
+
+    .sidebar-menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 0 12px;
+    }
+
+    .sidebar-menu a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 14px;
+    }
+
+    .content {
+        padding: 20px 16px;
+    }
+
+    .login-left {
+        display: none;
+    }
+
+    .login-right {
+        width: 100%;
+        padding: 24px 16px;
+    }
+}
+
+@media (max-width: 576px) {
     .stats-grid,
     .stats-secondary {
         grid-template-columns: 1fr;
