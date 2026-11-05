@@ -50,8 +50,10 @@ include __DIR__ . '/../../includes/sidebar.php';
                 <option value="">Pilih kategori</option>
                 <!-- TODO Milestone 4: isi pilihan dari tabel kategori. -->
                 <option value="elektronik">Elektronik</option>
-                <option value="multimedia">Multimedia</option>
-                <option value="perlengkapan-kegiatan">Perlengkapan kegiatan</option>
+                <option value="peralatan">Peralatan</option>
+                <option value="aksesoris">Aksesoris</option>
+                <option value="furniture">Furniture</option>
+                <option value="perlengkapan-kegiatan">Perlengkapan Kegiatan</option>
             </select>
             <p class="field-error" id="kategori-error"></p>
         </div>

@@ -49,9 +49,10 @@ include __DIR__ . '/../../includes/sidebar.php';
                     required data-nama="Barang" aria-describedby="barang-error">
                 <option value="">Pilih barang</option>
                 <!-- TODO Milestone 4: isi pilihan dari tabel barang yang berstatus tersedia. -->
-                <option value="proyektor">Proyektor</option>
-                <option value="laptop">Laptop</option>
-                <option value="kamera">Kamera</option>
+                <option value="BRG001">BRG001 - Laptop ASUS</option>
+                <option value="BRG002">BRG002 - Proyektor Epson</option>
+                <option value="BRG003">BRG003 - Kabel HDMI</option>
+                <option value="BRG005">BRG005 - Mouse Wireless</option>
             </select>
             <p class="field-error" id="barang-error"></p>
         </div>
